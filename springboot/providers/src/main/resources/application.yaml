@@ -1,0 +1,10 @@
+server:
+  port: 9000
+dubbo:
+  application:
+    name: providers
+  registry:
+    address: zookeeper://127.0.0.1:2181
+  protocal:
+    name: dubbo
+    port: 20880

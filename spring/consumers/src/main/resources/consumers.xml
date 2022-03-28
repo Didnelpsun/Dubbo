@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo = "http://dubbo.apache.org/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://dubbo.apache.org/schema/dubbo
+       http://dubbo.apache.org/schema/dubbo/dubbo.xsd
+">
+    <!--申明服务名称-->
+    <dubbo:application name="consumers" />
+    <!--注册中心地址-->
+    <dubbo:registry address="zookeeper://127.0.0.1:2181" />
+    <!--生成UserService的远程代理，调用providers的服务-->
+    <!--代理对象会注入容器中，消费者使用直接从容器中获取-->
+    <dubbo:reference id="userService" interface="org.didnelpsun.service.IUserService" />
+</beans>
